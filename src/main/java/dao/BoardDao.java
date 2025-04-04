@@ -10,7 +10,6 @@ public class BoardDao {
 
     public void saveAll(List<PieceDto> pieces) {
         final var insertSQL = "INSERT INTO piece (column_name, row_name, country, piece_type) VALUES (?, ?, ?, ?)";
-        deleteAll();
 
         try (var connection = JdbcUtils.getConnection();
              var preparedStatement = connection.prepareStatement(insertSQL)) {
